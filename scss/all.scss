@@ -53,6 +53,8 @@ a {
     border-radius: 40px;
     border: none;
     padding: 0 20px;
+    cursor:pointer;
+    transition: all ease 0.3s;
 }
 
 .btn-orange {
@@ -282,6 +284,10 @@ img {
         position: relative;
         padding-bottom: 60px;
         overflow-x: clip;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
         &.bg-dark {
             background-color: $very-dark-green;
@@ -377,6 +383,7 @@ img {
                 margin-right: 24px;
                 font-size: 20px;
                 font-weight: 600;
+                width: 100%;
                 z-index: -1;
 
                 img {
@@ -394,12 +401,31 @@ img {
             justify-content: center;
 
             .plan-items {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                color: $dark-green;
                 max-width: 400px;
-                margin: 0 24px;
                 border: $primary-green 2px solid;
                 border-radius: 20px;
-                padding: 12px 24px;
+                padding: 24px ;
                 background-color: $very-light-blue;
+                h2{
+                    text-align: center;
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+                p.tiny{
+                    text-align: center;
+                    font-size: 13px;
+                    margin-bottom: 24px;
+                    margin-top: 8px;
+                }
+                img{
+                    position: absolute;
+                }
             }
         }
 
@@ -450,8 +476,8 @@ img {
                         &::before {
                             content: url("../img/icon-check.svg");
                             position: absolute;
-                            top: 10px;
-                            left: 4px;
+                            top: 9px;
+                            left: 8px;
 
                         }
                     }
@@ -517,7 +543,7 @@ img {
 }
 
 ul.feature-list li {
-    padding: 8px 16px 8px 40px;
+    padding: 8px 8px 8px 40px;
     position: relative;
     line-height: 1.5;
 
@@ -527,6 +553,8 @@ ul.feature-list li {
 
     &::before {
         content: url("../img/icon-bulb.svg");
+        width: 40px;
+        height: 40px;
         position: absolute;
         top: 0px;
         left: 0px;
