@@ -98,7 +98,7 @@ img {
 
 .title-group {
     color: $dark-green;
-    padding: 60px 0 40px 0;
+    padding: 60px 24px 40px 24px;
     text-align: center;
 
     h2 {
@@ -409,6 +409,7 @@ img {
                 margin-bottom: 24px;
 
                 video {
+                    aspect-ratio: 16 / 9; 
                     width: 100%;
                     border-radius: 20px;
                 }
@@ -458,7 +459,6 @@ img {
             }
         }
 
-        &.functions {}
     }
 }
 

@@ -68,7 +68,7 @@ img {
 
 .title-group {
   color: #295E5C;
-  padding: 60px 0 40px 0;
+  padding: 60px 24px 40px 24px;
   text-align: center;
 }
 .title-group h2 {
@@ -336,6 +336,7 @@ img {
   margin-bottom: 24px;
 }
 .main .section-block.videos .video-items video {
+  aspect-ratio: 16/9;
   width: 100%;
   border-radius: 20px;
 }
@@ -375,6 +376,7 @@ img {
   top: 10px;
   left: 4px;
 }
+
 .feature-card {
   color: #295E5C;
   display: flex;
