@@ -240,6 +240,11 @@ img {
 .main .section-block .deco {
   position: absolute;
 }
+.main .section-block .top-curve {
+  margin-top: -100px;
+  width: 100%;
+  margin-bottom: -10px;
+}
 .main .section-block.key-vision {
   display: flex;
   flex-direction: column;
@@ -326,6 +331,50 @@ img {
   padding: 12px 24px;
   background-color: #F3FDFF;
 }
+.main .section-block.videos .video-items {
+  padding: 24px 0;
+  margin-bottom: 24px;
+}
+.main .section-block.videos .video-items video {
+  width: 100%;
+  border-radius: 20px;
+}
+.main .section-block.videos .video-items .video-items-intro {
+  background-color: #4BE8FF;
+  border-radius: 20px;
+  color: #295E5C;
+  padding: 8px 16px;
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+.main .section-block.videos .video-items .video-items-intro p {
+  font-size: 20px;
+  font-weight: 600;
+}
+.main .section-block.videos .video-items .video-items-intro span {
+  font-size: 14px;
+  padding-left: 8px;
+}
+.main .section-block.videos .video-items .video-items-tag {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.main .section-block.videos .video-items .video-items-tag p {
+  padding: 6px 12px 6px 30px;
+  background-color: white;
+  color: #295E5C;
+  position: relative;
+  border-radius: 20px;
+  margin: 8px 4px;
+}
+.main .section-block.videos .video-items .video-items-tag p::before {
+  content: url("../img/icon-check.svg");
+  position: absolute;
+  top: 10px;
+  left: 4px;
+}
 .feature-card {
   color: #295E5C;
   display: flex;
@@ -373,23 +422,24 @@ img {
   text-align: center;
   margin-bottom: 16px;
 }
-.feature-card .feature-card-item ul li {
+
+ul.feature-list li {
   padding: 8px 16px 8px 40px;
   position: relative;
   line-height: 1.5;
 }
 @media (min-width: 768px) {
-  .feature-card .feature-card-item ul li {
+  ul.feature-list li {
     padding-right: 8px;
   }
 }
-.feature-card .feature-card-item ul li::before {
+ul.feature-list li::before {
   content: url("../img/icon-bulb.svg");
   position: absolute;
   top: 0px;
   left: 0px;
 }
-.feature-card .feature-card-item ul li span {
+ul.feature-list li span {
   margin-left: 8px;
   background-color: #295E5C;
   color: white;
