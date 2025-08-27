@@ -402,6 +402,58 @@ img {
   top: 9px;
   left: 8px;
 }
+.main .section-block.call-to-action {
+  padding: 0 24px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../img/bg-island.svg");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 366px;
+  margin-bottom: 74px;
+}
+.main .section-block.call-to-action h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #295E5C;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.main .section-block.personality {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-image: url("../img/bg-personality-test-mobile.png");
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 24px;
+}
+.main .section-block.personality h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #295E5C;
+  margin-bottom: 12px;
+}
+.main .section-block.personality p {
+  color: #295E5C;
+  text-align: center;
+  margin-top: 8px;
+}
+.main .section-block.personality .btn {
+  position: relative;
+}
+.main .section-block.personality .btn::after {
+  content: url("../img/deco-pencil.svg");
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -20px;
+  right: 20px;
+}
 
 .feature-card {
   color: #295E5C;
