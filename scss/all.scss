@@ -37,15 +37,59 @@ a {
     font-family: "Noto Sans TC", "Roboto", sans-serif;
     text-decoration: none;
 
-    &:hover {
-        opacity: 0.6;
-    }
-
     transition: all ease 0.3s;
     ;
     cursor: pointer;
 }
 
+//rotate animation
+.rotate {
+    animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+//jelly animation
+.jelly:hover {
+    animation: jelly-bounce 600ms cubic-bezier(.22, .61, .36, 1) infinite;
+}
+
+@keyframes jelly-bounce {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    20% {
+        transform: scale(1.08, 0.92);
+    }
+
+    40% {
+        transform: scale(0.95, 1.05);
+    }
+
+    60% {
+        transform: scale(1.03, 0.97);
+    }
+
+    80% {
+        transform: scale(0.99, 1.01);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+
+//button
 .btn {
     display: flex;
     justify-content: center;
@@ -59,6 +103,7 @@ a {
 
 .btn-orange {
     background-color: $primary-orange;
+    border: $primary-orange solid 2px;
     color: white;
     box-shadow: 0 8px 10px 0 rgba(255, 161, 11, 0.20);
 
@@ -69,12 +114,13 @@ a {
     &:hover {
         background-color: white;
         color: $primary-orange;
-        border: $primary-orange solid 2px;
+
     }
 }
 
 .btn-green {
     background-color: $primary-green;
+    border: $primary-green solid 2px;
     color: white;
     box-shadow: 0 8px 10px 0 rgba(22, 185, 179, 0.10);
 
@@ -85,7 +131,7 @@ a {
     &:hover {
         background-color: white;
         color: $primary-green;
-        border: $primary-green solid 2px;
+
     }
 }
 
@@ -102,6 +148,7 @@ a {
     font-size: 16px;
 }
 
+// font setting
 p,
 h2,
 h3,
@@ -111,34 +158,13 @@ label {
     line-height: 1.5;
 }
 
+// img basic setting
 img {
     max-width: 100%;
     height: auto;
     vertical-align: middle;
 }
 
-.title-group {
-    color: $dark-green;
-    padding: 60px 24px 40px 24px;
-    text-align: center;
-
-    h2 {
-        font-size: 28px;
-        font-weight: 600;
-        margin-bottom: 8px;
-    }
-
-    h3 {
-        font-size: 14px;
-    }
-}
-
-.float-btn-group {
-    position: fixed;
-    right: 16px;
-    bottom: 76px;
-    z-index: 2;
-}
 
 // flex
 
@@ -173,7 +199,7 @@ img {
 // utilities
 
 .text-white {
-    color: white;
+    color: white !important;
 }
 
 .text-light-blue {
@@ -194,7 +220,32 @@ img {
 
 .container {
     padding: 0 24px;
+    width: 100%;
     max-width: 708px;
+}
+
+// basic title group
+.title-group {
+    color: $dark-green;
+    padding: 60px 24px 40px 24px;
+    text-align: center;
+
+    h2 {
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    h3 {
+        font-size: 14px;
+    }
+}
+
+.float-btn-group {
+    position: fixed;
+    right: 16px;
+    bottom: 76px;
+    z-index: 2;
 }
 
 // navbar
@@ -295,278 +346,316 @@ img {
     }
 }
 
-// index
+// ------- index ------- //
 
-.main {
 
-    .section-block {
-        position: relative;
-        padding-bottom: 60px;
-        overflow-x: clip;
+
+.section-block {
+    position: relative;
+    padding-bottom: 60px;
+    overflow-x: clip;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &.bg-dark {
+        background-color: $very-dark-green;
+    }
+
+    &.bg-green {
+        background-color: $primary-green
+    }
+
+    &.bg-very-light-blue {
+        background-color: $very-light-blue
+    }
+
+    .position-absolute {
+        position: absolute;
+    }
+
+    .top-curve {
+        margin-top: -100px;
+        width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("../img/bg-curve-green.svg");
+        height: 100px;
+    }
+
+    &.key-vision {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 0;
+        margin-bottom: -2px;
+
+        @include pad {
+            flex-direction: row;
+        }
+
+        h2 {
+            text-align: center;
+            color: $dark-green;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 32px;
+
+            span {
+                font-size: 28px;
+                color: $primary-green;
+            }
+        }
+
+        .lottie-animation {
+            width: 100%;
+            margin: 0 auto;
+
+            @include pad {
+                max-width: 400px;
+            }
+        }
+
+    }
+
+    &.slogan {
+        text-align: center;
+        background-color: $very-light-blue;
+        padding: 50px 0;
+        color: $dark-green;
+
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        h3 {
+            font-size: 14px;
+        }
+    }
+
+    &.bubble-dialog {
+        padding-top: 48px;
+
+        #type-animation {
+            padding: 8px 24px;
+            background-color: #F3FDFF;
+            border: $light-blue 2px solid;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            overflow: hidden;
+            line-height: 1.4;
+            height: 40px;
+
+            &::after {
+                content: "";
+                display: inline-block;
+                width: .12em;
+                height: 1em;
+                margin-left: .1em;
+                border-right: .12em solid currentColor;
+                animation: caret .8s step-end infinite;
+                transform: translateY(1px);
+            }
+
+            @keyframes caret {
+                50% {
+                    border-right-color: transparent;
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .bubble-dialog #type-animation::after {
+                    animation: none;
+                    border-right-color: currentColor;
+                }
+            }
+        }
+
+        .block-mascot {
+            position: relative;
+            border-radius: 0 100px 0 0;
+            background-color: $blue;
+            padding: 24px 0 60px 24px;
+            margin-top: 24px;
+            margin-right: 24px;
+            font-size: 20px;
+            font-weight: 600;
+            width: 100%;
+            z-index: -1;
+
+            img {
+                position: absolute;
+                top: -20px;
+                right: 3px;
+            }
+        }
+    }
+
+    &.plans {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
 
-        &.bg-dark {
-            background-color: $very-dark-green;
-        }
-
-        &.bg-green {
-            background-color: $primary-green
-        }
-
-        &.bg-very-light-blue {
-            background-color: $very-light-blue
-        }
-
-        .deco {
-            position: absolute;
-        }
-
-        .top-curve {
-            margin-top: -100px;
-            width: 100%;
-            margin-bottom: -10px;
-        }
-
-        &.key-vision {
+        .plan-items {
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            padding-bottom: 0;
-            margin-bottom: -2px;
-
-            @include pad {
-                flex-direction: row;
-            }
-
-            h2 {
-                text-align: center;
-                color: $dark-green;
-                font-size: 22px;
-                font-weight: 600;
-                margin-bottom: 32px;
-
-                span {
-                    font-size: 28px;
-                    color: $primary-green;
-                }
-            }
-
-            .lottie-animation {
-                width: 100%;
-                margin: 0 auto;
-
-                @include pad {
-                    max-width: 400px;
-                }
-            }
-
-        }
-
-        &.slogan {
-            text-align: center;
-            background-color: $very-light-blue;
-            padding: 50px 0;
+            align-items: center;
+            position: relative;
             color: $dark-green;
+            max-width: 400px;
+            border: $primary-green 2px solid;
+            border-radius: 20px;
+            padding: 24px;
+            background-color: $very-light-blue;
 
             h2 {
-                font-size: 22px;
+                text-align: center;
+                font-size: 18px;
                 font-weight: 600;
-                margin-bottom: 8px;
             }
 
-            h3 {
-                font-size: 14px;
-            }
-        }
-
-        &.bubble-dialog {
-            padding-top: 48px;
-
-            .text-animation {
-                padding: 8px 24px;
-                background-color: #F3FDFF;
-                border: $light-blue 2px solid;
-                border-radius: 20px;
-            }
-
-            .block-mascot {
-                position: relative;
-                border-radius: 0 100px 0 0;
-                background-color: $blue;
-                padding: 24px 0 60px 24px;
-                margin-top: 24px;
-                margin-right: 24px;
-                font-size: 20px;
-                font-weight: 600;
-                width: 100%;
-                z-index: -1;
-
-                img {
-                    position: absolute;
-                    top: -20px;
-                    right: 3px;
-                }
-            }
-        }
-
-        &.plans {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-
-            .plan-items {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                position: relative;
-                color: $dark-green;
-                max-width: 400px;
-                border: $primary-green 2px solid;
-                border-radius: 20px;
-                padding: 24px;
-                background-color: $very-light-blue;
-
-                h2 {
-                    text-align: center;
-                    font-size: 18px;
-                    font-weight: 600;
-                }
-
-                p.tiny {
-                    text-align: center;
-                    font-size: 13px;
-                    margin-bottom: 24px;
-                    margin-top: 8px;
-                }
-
-                img {
-                    position: absolute;
-                }
-            }
-        }
-
-        &.videos {
-            .video-items {
-                padding: 24px 0;
+            p.tiny {
+                text-align: center;
+                font-size: 13px;
                 margin-bottom: 24px;
-
-                video {
-                    aspect-ratio: 16 / 9;
-                    width: 100%;
-                    border-radius: 20px;
-                }
-
-                .video-items-intro {
-                    background-color: $blue;
-                    border-radius: 20px;
-                    color: $dark-green;
-                    padding: 8px 16px;
-                    text-align: center;
-                    margin-top: 8px;
-                    margin-bottom: 20px;
-
-                    p {
-                        font-size: 20px;
-                        font-weight: 600;
-                    }
-
-                    span {
-                        font-size: 14px;
-                        padding-left: 8px;
-                    }
-                }
-
-                .video-items-tag {
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: center;
-
-                    p {
-                        padding: 6px 12px 6px 30px;
-                        background-color: white;
-                        color: $dark-green;
-                        position: relative;
-                        border-radius: 20px;
-                        margin: 8px 4px;
-
-                        &::before {
-                            content: url("../img/icon-check.svg");
-                            position: absolute;
-                            top: 9px;
-                            left: 8px;
-
-                        }
-                    }
-                }
-            }
-        }
-
-        &.call-to-action {
-            padding: 0 24px;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-image: url("../img/bg-island.svg");
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 366px;
-            margin-bottom: 74px;
-
-            h2 {
-                font-size: 20px;
-                font-weight: 600;
-                color: $dark-green;
-                text-align: center;
-                margin-bottom: 16px;
-            }
-        }
-
-        &.personality {
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: bottom;
-            background-image: url("../img/bg-personality-test-mobile.png");
-            height: 800px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            padding: 0 24px;
-
-            h2 {
-                font-size: 24px;
-                font-weight: 600;
-                color: $dark-green;
-                margin-bottom: 12px;
-            }
-
-            p {
-                color: $dark-green;
-                text-align: center;
                 margin-top: 8px;
             }
 
-            .btn {
-                position: relative;
+            img {
+                position: absolute;
+            }
+        }
+    }
 
-                &::after {
-                    content: url("../img/deco-pencil.svg");
-                    width: 40px;
-                    height: 40px;
-                    position: absolute;
-                    top: -20px;
-                    right: 20px;
+    &.videos {
+        .video-items {
+            padding: 24px 0;
+            margin-bottom: 24px;
+
+            video {
+                aspect-ratio: 16 / 9;
+                width: 100%;
+                border-radius: 20px;
+            }
+
+            .video-items-intro {
+                background-color: $blue;
+                border-radius: 20px;
+                color: $dark-green;
+                padding: 8px 16px;
+                text-align: center;
+                margin-top: 8px;
+                margin-bottom: 20px;
+
+                p {
+                    font-size: 20px;
+                    font-weight: 600;
+                }
+
+                span {
+                    font-size: 14px;
+                    padding-left: 8px;
+                }
+            }
+
+            .video-items-tag {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                p {
+                    padding: 6px 12px 6px 30px;
+                    background-color: white;
+                    color: $dark-green;
+                    position: relative;
+                    border-radius: 20px;
+                    margin: 8px 4px;
+
+                    &::before {
+                        content: url("../img/icon-check.svg");
+                        position: absolute;
+                        top: 9px;
+                        left: 8px;
+
+                    }
                 }
             }
         }
     }
+
+    &.call-to-action {
+        padding: 0 24px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("../img/bg-island.svg");
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 366px;
+        margin-bottom: 74px;
+
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: $dark-green;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+    }
+
+    &.personality {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-image: url("../img/bg-personality-test-mobile.png");
+        height: 800px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 0 24px;
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: $dark-green;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: $dark-green;
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        .enter-btn {
+            cursor: pointer;
+        }
+
+        .btn {
+            position: relative;
+
+            &::after {
+                content: url("../img/deco-pencil.svg");
+                width: 40px;
+                height: 40px;
+                position: absolute;
+                top: -20px;
+                right: 20px;
+            }
+        }
+    }
 }
+
 
 .feature-card {
     color: $dark-green;

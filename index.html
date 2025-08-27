@@ -26,8 +26,8 @@
     <!-- ========== 導覽列 end ========== -->
     <!-- ========== 右下方固定按鈕 start ========== -->
     <div class="float-btn-group d-flex flex-column align-items-center">
-        <a href="" style="margin-bottom: 8px;"><img src="./img/btn-top.svg" alt=""></a>
-        <a href=""><img src="./img/badge.svg" alt=""></a>
+        <a href="" style="margin-bottom: 8px;"><img src="./img/btn-top.svg" alt="回到頂端"></a>
+        <a href=""><img src="./img/badge.svg" class="rotate" alt="點擊進入心理測驗"></a>
     </div>
     <!-- ========== 右下方固定按鈕 end ========== -->
     <!-- ========== 手機版下方錨點按鈕 start ========== -->
@@ -45,8 +45,8 @@
 
             <img src="./img/logo.svg" style="margin-bottom: 42px;">
             <div style="position: relative;">
-                <img src="./img/deco-flower-orange.svg" style="top:0;left:0" class="deco">
-                <img src="./img/deco-arrow.svg" style="top:-20px;right:-50px" class="deco">
+                <img src="./img/deco-flower-orange.svg" style="top:0;left:0" class="position-absolute">
+                <img src="./img/deco-arrow.svg" style="top:-20px;right:-50px" class="position-absolute">
                 <h2>讓學習成為充滿<br /><span>自我掌握、互助支持<br />和看得見進步的美好日常</span></h2>
             </div>
             <button class="btn btn-orange btn-large" style="margin-bottom: 20px;">立即加入
@@ -65,7 +65,7 @@
             <h2>每個人都有自己的學習小島，<br />
                 透過交流與分享，連結成群島</h2>
             <h3>Where personal growth meets collective wisdom!</h3>
-            <img class="deco" src="./img/deco-island.svg" style="right:calc(208px / 2);bottom:0" alt="">
+            <img class="position-absolute" src="./img/deco-island.svg" style="right:calc(208px / 2);bottom:0" alt="">
         </div>
         <!-- slogan end -->
         <!-- feature start -->
@@ -113,7 +113,7 @@
         <!-- feature end -->
         <!-- presentation  start -->
         <div class="section-block bg-dark">
-            <img class="deco" src="./img/deco-flower-yellow.svg" style="left:15px" alt="">
+            <img class="position-absolute" src="./img/deco-flower-yellow.svg" style="top:0;left:15px" alt="">
             <div class="title-group text-white">
                 <h2>展示你的學習成果</h2>
                 <h3 class="text-light-blue">在實踐中與眾人一同成長</h3>
@@ -124,9 +124,9 @@
         <!-- you can...  start -->
         <div class="section-block bubble-dialog">
             <div class="container">
-                <div class="d-flex justify-content-between">
+                <div class="d-flex w-100 justify-content-between align-items-center">
                     <p class="text-dark-green">在這裡你可以...</p>
-                    <div class="text-animation">看看別人怎麼做</div>
+                    <div id="type-animation">看看別人怎麼做</div>
                 </div>
             </div>
             <div class="block-mascot">
@@ -138,8 +138,8 @@
         <!-- you can...  end -->
         <!-- videos  start -->
         <div class="section-block videos bg-green">
-            <img src="./img/bg-curve-green.svg" class="top-curve">
-            <div class="title-group text-white">
+            <div class="top-curve"></div>
+            <div class="title-group text-white" style="margin-top: -70px;margin-bottom: -30px;">
                 <h2>兩種起點開始你的學習之旅</h2>
                 <h3>分享想法開始討論，嘗試實踐記錄成長</h3>
             </div>
@@ -412,15 +412,20 @@
                 <div class="d-flex align-items-center text-dark-green"><img src="./img/icon-clock.svg"
                         style="margin-right: 8px;">2-3分鐘</div>
             </div>
-            <img src="./img/button-personality-test.svg" alt="點擊進入心理測驗" style="margin-bottom: 32px;">
-            <div class="btn btn-green btn-large w-100">查看個人化結果<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+            <a href="">
+
+                <img src="./img/button-personality-test.svg" alt="點擊進入心理測驗" class="enter-btn jelly"
+                    style="margin-bottom: 32px;">
+            </a>
+            <div class="btn btn-green btn-large w-100">查看個人化結果<svg xmlns="http://www.w3.org/2000/svg" width="20"
+                    height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="icon">
                     <path d="M5 12h14"></path>
                     <path d="M12 5l7 7-7 7"></path>
                 </svg></div>
             <p>獲得專屬學習建議</p>
-            <img src="./img/deco-mascot.svg" style="position: absolute;top:calc(10%);right:-10px">
-            <img src="./img/deco-items.svg" style="position: absolute;top:calc(30%);left:0">
+            <img src="./img/deco-mascot.svg" class="position-absolute" style="top:10%;right:-10px">
+            <img src="./img/deco-items.svg" class="position-absolute" style="top:30%;left:0">
         </div>
         <!-- personality test end -->
     </section>
@@ -448,7 +453,14 @@
             <p class="group-title">訂閱電子報</p>
             <form class="email-form">
                 <input class="w-100" type="email" placeholder="輸入您的Email">
-                <button class="btn btn-large btn-green w-100">訂閱<img src="./img/icon-arrow.svg" alt=""></button>
+                <button class="btn btn-large btn-green w-100">訂閱
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20"
+                    height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="icon">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                </svg>
+                </button>
             </form>
         </div>
         <div class="link-group d-flex">
@@ -473,5 +485,6 @@
     });
 </script>
 <script src="./js/carousel.js"></script>
+<script src="./js/type-animation.js"></script>
 
 </html>
