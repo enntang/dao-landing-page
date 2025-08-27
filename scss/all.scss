@@ -62,12 +62,31 @@ a {
     color: white;
     box-shadow: 0 8px 10px 0 rgba(255, 161, 11, 0.20);
 
+    svg {
+        transition: inherit;
+    }
+
+    &:hover {
+        background-color: white;
+        color: $primary-orange;
+        border: $primary-orange solid 2px;
+    }
 }
 
 .btn-green {
     background-color: $primary-green;
     color: white;
     box-shadow: 0 8px 10px 0 rgba(22, 185, 179, 0.10);
+
+    svg {
+        transition: inherit;
+    }
+
+    &:hover {
+        background-color: white;
+        color: $primary-green;
+        border: $primary-green solid 2px;
+    }
 }
 
 .btn-large {
@@ -526,7 +545,7 @@ img {
                 color: $dark-green;
                 margin-bottom: 12px;
             }
-            
+
             p {
                 color: $dark-green;
                 text-align: center;

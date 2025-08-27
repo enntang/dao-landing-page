@@ -34,11 +34,27 @@ a:hover {
   color: white;
   box-shadow: 0 8px 10px 0 rgba(255, 161, 11, 0.2);
 }
+.btn-orange svg {
+  transition: inherit;
+}
+.btn-orange:hover {
+  background-color: white;
+  color: #FFA10B;
+  border: #FFA10B solid 2px;
+}
 
 .btn-green {
   background-color: #16B9B3;
   color: white;
   box-shadow: 0 8px 10px 0 rgba(22, 185, 179, 0.1);
+}
+.btn-green svg {
+  transition: inherit;
+}
+.btn-green:hover {
+  background-color: white;
+  color: #16B9B3;
+  border: #16B9B3 solid 2px;
 }
 
 .btn-large {
