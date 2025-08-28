@@ -218,10 +218,32 @@ img {
     height: 100%;
 }
 
+.desktop-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    @include pad {
+        flex-direction: row;
+        gap: 24px;
+
+    }
+}
+
+.gap-s {
+    gap: 8px;
+}
+
 .container {
     padding: 0 24px;
     width: 100%;
     max-width: 708px;
+    margin: auto;
+
+    @include pad {
+        max-width: 1140px;
+    }
 }
 
 // basic title group
@@ -229,6 +251,7 @@ img {
     color: $dark-green;
     padding: 60px 24px 40px 24px;
     text-align: center;
+
 
     h2 {
         font-size: 28px;
@@ -246,6 +269,10 @@ img {
     right: 16px;
     bottom: 76px;
     z-index: 2;
+
+    @include pad {
+        bottom: 36px;
+    }
 }
 
 // navbar
@@ -263,6 +290,28 @@ img {
 
         img {
             width: 142px;
+        }
+    }
+
+    .button-group {
+        display: flex;
+
+        a {
+            color: $dark-green;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 120px;
+            height: 100%;
+        }
+
+        .navbar-bottom-item {
+            display: none;
+
+            @include pad {
+                display: flex;
+            }
         }
     }
 }
@@ -295,6 +344,20 @@ img {
     }
 }
 
+// hide before scroll
+.revealable {
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity .24s ease, transform .24s ease;
+}
+
+.revealable.is-visible {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+}
+
 // footer
 .footer {
     background-color: $very-dark-green;
@@ -306,6 +369,7 @@ img {
 
         img {
             width: 142px;
+            margin-bottom: 8px;
         }
 
         p {
@@ -317,6 +381,7 @@ img {
     .link-group {
         font-size: 18px;
         margin-bottom: 36px;
+        width: 100%;
 
         .group-title {
             color: $aqua;
@@ -329,6 +394,10 @@ img {
             a {
                 font-weight: 200;
                 color: white;
+
+                &:hover {
+                    color: $primary-green
+                }
             }
         }
     }
@@ -383,6 +452,10 @@ img {
         background-position: center;
         background-image: url("../img/bg-curve-green.svg");
         height: 100px;
+
+        @include pad {
+            background-position: top;
+        }
     }
 
     &.key-vision {
@@ -395,18 +468,71 @@ img {
 
         @include pad {
             flex-direction: row;
+            padding-bottom: 100px;
         }
 
-        h2 {
-            text-align: center;
-            color: $dark-green;
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 32px;
+        .title {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
 
-            span {
-                font-size: 28px;
-                color: $primary-green;
+
+            @include pad {
+                margin-left: 100px;
+                align-items: flex-start;
+                min-width: 320px;
+            }
+
+            img:nth-of-type(1) {
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                @include pad {
+                    top: 20px;
+                    left: -80px;
+                }
+            }
+
+            img:nth-of-type(2) {
+                position: absolute;
+                top: -20px;
+                right: -50px;
+
+                @include pad {
+                    top: inherit;
+                    bottom: 0;
+                    right: -20px;
+                }
+            }
+
+            .logo {
+                width: 200px;
+                height: auto;
+
+                @include pad {
+                    margin-bottom: 80px;
+                }
+            }
+
+            h2 {
+                text-align: center;
+                color: $dark-green;
+                font-size: 22px;
+                font-weight: 600;
+                margin-bottom: 32px;
+
+                @include pad {
+                    text-align: left;
+                    margin-bottom: 60px;
+                }
+
+                span {
+                    font-size: 28px;
+                    color: $primary-green;
+                }
             }
         }
 
@@ -415,7 +541,11 @@ img {
             margin: 0 auto;
 
             @include pad {
-                max-width: 400px;
+                max-width: 578px;
+            }
+
+            @include pad {
+                max-width: 620px;
             }
         }
 
@@ -438,8 +568,34 @@ img {
         }
     }
 
+    &.learning-progress {
+        padding-bottom: 0;
+        position: relative;
+
+        picture {
+            @include pad {
+                max-width: 600px;
+                margin-bottom: 32px;
+            }
+        }
+    }
+
     &.bubble-dialog {
         padding-top: 48px;
+
+        .dialog-text {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 24px;
+            padding-right: 10%;
+
+            @include pad {
+                padding-right: 20%;
+                font-size: 20px;
+            }
+        }
 
         #type-animation {
             padding: 8px 24px;
@@ -479,16 +635,23 @@ img {
         }
 
         .block-mascot {
-            position: relative;
-            border-radius: 0 100px 0 0;
-            background-color: $blue;
-            padding: 24px 0 60px 24px;
-            margin-top: 24px;
-            margin-right: 24px;
+            padding: 24px 24px 0 0;
             font-size: 20px;
             font-weight: 600;
             width: 100%;
             z-index: -1;
+
+            @include pad {
+                padding-right: 20%;
+                font-size: 28px;
+            }
+
+            .block-mascot-body {
+                position: relative;
+                border-radius: 0 100px 0 0;
+                background-color: $blue;
+                padding: 60px 0;
+            }
 
             img {
                 position: absolute;
@@ -540,6 +703,10 @@ img {
         .video-items {
             padding: 24px 0;
             margin-bottom: 24px;
+
+            @include pad {
+                width: 50%;
+            }
 
             video {
                 aspect-ratio: 16 / 9;
@@ -604,6 +771,10 @@ img {
         height: 366px;
         margin-bottom: 74px;
 
+        @include pad {
+            background-size: contain;
+        }
+
         h2 {
             font-size: 20px;
             font-weight: 600;
@@ -624,11 +795,22 @@ img {
         justify-content: flex-start;
         padding: 0 24px;
 
-        h2 {
-            font-size: 24px;
-            font-weight: 600;
-            color: $dark-green;
-            margin-bottom: 12px;
+        @include pad {
+            background-image: url("../img/bg-personality-test-desktop.png");
+            padding: 0 20%;
+        }
+
+        .personality-title {
+            margin-bottom: 32px;
+            width: 100%;
+
+            h2 {
+                font-size: 24px;
+                font-weight: 600;
+                color: $dark-green;
+                margin-bottom: 12px;
+                width: 100%;
+            }
         }
 
         p {
@@ -639,6 +821,12 @@ img {
 
         .enter-btn {
             cursor: pointer;
+            margin-bottom: 32px;
+            text-align: center;
+
+            @include pad {
+                width: 100%;
+            }
         }
 
         .btn {
@@ -661,7 +849,7 @@ img {
     color: $dark-green;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
 
     @include pad {
         flex-direction: row;

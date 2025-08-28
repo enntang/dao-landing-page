@@ -21,9 +21,9 @@ $yellow: #F9E41C;
 
 /* 卡片排版：左側頭像+名字，右側文字 */
 .marquee-card {
-  --w: 320px;
-  width: var(--w);
-  min-height: 140px;
+  
+  width: 320px;
+  min-height: 120px;
   padding: 16px;
   border-radius: 18px;
   background: $very-light-blue;
