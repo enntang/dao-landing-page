@@ -26,6 +26,7 @@ $yellow: #F9E41C;
 
 body * {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 svg {
@@ -306,14 +307,16 @@ img {
             height: 100%;
         }
 
-        .navbar-bottom-item {
+        .navbar-item {
             display: none;
 
             @include pad {
-                display: flex;
+                display: block;
             }
         }
+
     }
+
 }
 
 .navbar-bottom {
@@ -341,6 +344,15 @@ img {
         color: $dark-green;
         transition: all ease 0.3s;
 
+        a {
+            color: $dark-green;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 120px;
+            height: 100%;
+        }
     }
 }
 

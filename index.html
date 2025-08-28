@@ -22,9 +22,9 @@
     <nav class="navbar d-flex align-items-center revealable">
         <div class="logo"><img src="img/logo-simple.svg" alt=""></div>
         <div class="button-group">
-            <div class="navbar-bottom-item"><a href="">解決困境</a></div>
-            <div class="navbar-bottom-item"><a href="">功能生態</a></div>
-            <div class="navbar-bottom-item"><a href="">方案</a></div>
+            <div class="navbar-item"><a href="#feature" class="scroll-link">解決困境</a></div>
+            <div class="navbar-item"><a href="#functions" class="scroll-link">功能生態</a></div>
+            <div class="navbar-item"><a href="#plans" class="scroll-link">方案</a></div>
             <button class="btn btn-orange btn-small">立即加入</button>
         </div>
     </nav>
@@ -37,9 +37,9 @@
     <!-- ========== 右下方固定按鈕 end ========== -->
     <!-- ========== 手機版下方錨點按鈕 start ========== -->
     <div class="navbar-bottom">
-        <div class="navbar-bottom-item">解決困境</div>
-        <div class="navbar-bottom-item">功能生態</div>
-        <div class="navbar-bottom-item">方案</div>
+        <div class="navbar-bottom-item"><a href="#feature" class="scroll-link">解決困境</a></div>
+            <div class="navbar-bottom-item"><a href="#functions" class="scroll-link">功能生態</a></div>
+            <div class="navbar-bottom-item"><a href="#plans" class="scroll-link">方案</a></div>
     </div>
     <!-- ========== 手機版下方錨點按鈕 end ========== -->
     <!-- ========== 主要內容區 start ========== -->
@@ -77,7 +77,7 @@
         <!-- slogan end -->
         <!-- feature start -->
         <div class="container">
-            <div class="section-block">
+            <div class="section-block" id="feature">
                 <div class="title-group">
                     <h2>告別三大學習困境</h2>
                     <h3>從學習痛點到美好體驗，讓每一步成長都看得見</h3>
@@ -194,7 +194,7 @@
         </div>
         <!-- videos  end -->
         <!-- functions  start -->
-        <div class="section-block functions bg-very-light-blue">
+        <div class="section-block functions bg-very-light-blue" id="functions">
             <div class="title-group">
                 <h2>學習群島上的功能生態</h2>
             </div>
@@ -241,7 +241,7 @@
         </div>
         <!-- functions  end -->
         <!-- plans  start -->
-        <div class="section-block plans">
+        <div class="section-block plans" id="plans">
             <div class="title-group">
                 <h2>加入島島阿學</h2>
                 <h3>搶先體驗完整學習平台，與我們一起打造更好的學習體驗</h3>
@@ -502,6 +502,24 @@
     <!-- ========== footer end ========== -->
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+<script>
+  document.querySelectorAll('a.scroll-link').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault(); // 阻止預設跳轉
+      const target = document.querySelector(this.getAttribute('href'));
+      const offset = 20; 
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = target.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    });
+  });
+</script>
 <script>
     const isMobile = window.matchMedia("(max-width: 767px)").matches;
     const animation = lottie.loadAnimation({

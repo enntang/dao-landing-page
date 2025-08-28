@@ -1,5 +1,6 @@
 body * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 svg {
@@ -246,12 +247,12 @@ img {
   width: 120px;
   height: 100%;
 }
-.navbar .button-group .navbar-bottom-item {
+.navbar .button-group .navbar-item {
   display: none;
 }
 @media (min-width: 768px) {
-  .navbar .button-group .navbar-bottom-item {
-    display: flex;
+  .navbar .button-group .navbar-item {
+    display: block;
   }
 }
 
@@ -280,6 +281,15 @@ img {
   align-items: center;
   color: #295E5C;
   transition: all ease 0.3s;
+}
+.navbar-bottom .navbar-bottom-item a {
+  color: #295E5C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 120px;
+  height: 100%;
 }
 
 .revealable {
