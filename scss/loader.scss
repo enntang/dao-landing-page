@@ -1,0 +1,80 @@
+// general
+
+$primary-orange: #FFA10B;
+$primary-green: #16B9B3;
+$dark-green: #295E5C;
+$very-dark-green: #0D3036;
+$light-blue: #99ECFF;
+$blue: #4BE8FF;
+$very-light-blue: #F3FDFF;
+$aqua: #A9EDE8;
+$yellow: #F9E41C;
+
+//loader style
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    background: #fff
+}
+
+.loader {
+    position: fixed;
+    inset: 0;
+    background: $very-light-blue;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    z-index: 9999;
+}
+
+.loader__center {
+    display: grid;
+    place-items: center;
+}
+
+.loader__logo {
+    width: 140px;
+    height: 140px;
+}
+
+.loader__bottom {
+    //   padding:16px 16px 8px;
+}
+
+.loader__percent {
+    //   font:700 56px/1.1 system-ui, -apple-system, "Noto Sans TC", sans-serif;
+    font-size: 50px;
+    font-weight: 600;
+    padding: 0 24px;
+    color: $primary-green;
+    margin-bottom: 8px;
+}
+
+.loader__track {
+    position: relative;
+    height: 8px;
+    background: rgba(17, 179, 170, .2);
+    overflow: hidden;
+}
+
+.loader__bar {
+    height: 100%;
+    width: 0%;
+    background: $primary-green;
+    // transform-origin: left center;
+    transform: none;
+    transition:  width .2s ease; 
+}
+
+.loader--hide {
+    pointer-events: none;
+    animation: fadeOut .4s ease forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0
+    }
+}
